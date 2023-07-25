@@ -32,10 +32,8 @@ time, mark, audio, video {
     flex-wrap: wrap;
     width: 500px;
     height: 500px;
-
 }
 
 .grid {
-    background-color: gray;
     border: solid 1px;
 }

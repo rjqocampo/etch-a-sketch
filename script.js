@@ -7,6 +7,7 @@ function makeGrids(n = 2) {
     for (let i = 0; i < (n * n); i++) {
         const grid = document.createElement('div');
         grid.setAttribute('class', 'grid');
+        grid.style.backgroundColor = 'rgb(192, 192, 192)';
         grid.style.width = `${(1 / n) * 100}%`;
         containerSketch.appendChild(grid);
     }
@@ -19,43 +20,61 @@ function removeGrids() {
 }
 
 function erase(e) {
-    e.target.style.backgroundColor = "white";
+    console.log(e.target.style.backgroundColor);
+    e.target.style.backgroundColor = 'rgb(192,192,192)';
 }
 
 function black(e) {
-    e.target.style.backgroundColor = "black";
+    console.log(e.target.style.backgroundColor);
+    e.target.style.backgroundColor = 'rgb(0, 0, 0)';
 }
 
 function shade(e) {
-    e.target.style.backgroundColor = "orange";
+    // console.log(window.getComputedStyle(e.target).filter);
+    // let prevBrightness = window.getComputedStyle(e.target).filter; // get string of css filter brightness
+    // let brightness = prevBrightness.slice(prevBrightness.indexOf('(') + 1, -1); // slice number from string
+    // let newBrightness = (brightness * 100) - 10; 
+    // console.log(newBrightness);
+    // e.target.style.filter = `brightness(${newBrightness}%)`;
+
+    console.log(e.target.style.backgroundColor);
+    let rgb = e.target.style.backgroundColor;
+    rgb = rgb.slice(rgb.indexOf('(') + 1, -1);
+    rgb = rgb.split(', ');
+
+    let r = rgb[0];
+    let g = rgb[1];
+    let b = rgb[2];
+
+    e.target.style.backgroundColor = `rgb(${r - 20}, ${g - 20}, ${b -20})`
 }
 
 function toggleMode(e) {
     if (buttonToggle.textContent === "Black") {
+        containerSketch.removeEventListener('mouseover', black);
         buttonToggle.textContent = "Erase";
-        containerSketch.removeEventListener('mouse', black);
+        console.log('erase mode');
         containerSketch.addEventListener('mouseover', erase);
         return;
     } else if (buttonToggle.textContent === "Erase") {
-        buttonToggle.textContent = "Shade";
         containerSketch.removeEventListener('mouseover', erase);
+        buttonToggle.textContent = "Shade";
+        console.log('shade mode');
         containerSketch.addEventListener('mouseover', shade);
         return;
     } else if (buttonToggle.textContent === "Shade") {
-        buttonToggle.textContent = "Black";
         containerSketch.removeEventListener('mouseover', shade);
+        buttonToggle.textContent = "Black";
+        console.log('black mode');
         containerSketch.addEventListener('mouseover', black);
         return;
     }
 }
 
-containerSketch.addEventListener('mouseover', black);
-buttonToggle.addEventListener('click', toggleMode);
-
 // slider to change pad size
 slider.addEventListener('input', () => {
     removeGrids();
-    makeGrids(slider.textContent);
+    makeGrids(slider.value);
 });
 
 // button to change pad size
@@ -68,5 +87,10 @@ buttonSize.addEventListener('click', () => {
         makeGrids(n);
     }
 });
+
+// containerSketch.addEventListener('mouseover', black);
+buttonToggle.addEventListener('click', toggleMode);
+
+containerSketch.addEventListener('mouseover', black);
 
 makeGrids();
