@@ -32,7 +32,7 @@ html {
 }
 
 body {
-    background-image: url(/img/afternoon-grass.jpg);
+    background-image: url(img/afternoon-grass.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
