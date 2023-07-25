@@ -4,7 +4,7 @@ const slider = document.getElementById('slider');
 const buttonToggle = document.getElementById('button-toggle');
 const buttonErase = document.getElementById('button-erase');
 
-function makeGrids(n = 32) {
+function makeGrids(n = 22) {
     for (let i = 0; i < (n * n); i++) {
         const grid = document.createElement('div');
         grid.setAttribute('class', 'grid');
@@ -30,13 +30,27 @@ function eraseAll() {
 }
 
 function erase(e) {
-    console.log(e.target.style.backgroundColor);
     e.target.style.backgroundColor = 'rgb(192,192,192)';
 }
 
 function black(e) {
-    console.log(e.target.style.backgroundColor);
     e.target.style.backgroundColor = 'rgb(0, 0, 0)';
+}
+
+function randomizeRgb() {
+    return Math.floor(Math.random() * 255);
+}
+
+function fire(e) {
+    e.target.style.backgroundColor = `rgb(255, ${randomizeRgb()}, 0)`;
+}
+
+function water(e) {
+    e.target.style.backgroundColor = `rgb(0, ${randomizeRgb()}, 255)`;
+}
+
+function grass(e) {
+    e.target.style.backgroundColor = `rgb(${randomizeRgb()}, 255, 0)`;
 }
 
 function shade(e) {
@@ -60,23 +74,35 @@ function shade(e) {
 }
 
 function toggleMode(e) {
-    if (buttonToggle.textContent === "Black") {
+    if (buttonToggle.textContent === "Shade") {
+        containerSketch.removeEventListener('mouseover', shade);
+        buttonToggle.textContent = "Black";
+        containerSketch.addEventListener('mouseover', black);
+        return;
+    } else if (buttonToggle.textContent === "Black") {
         containerSketch.removeEventListener('mouseover', black);
         buttonToggle.textContent = "Erase";
-        console.log('erase mode');
         containerSketch.addEventListener('mouseover', erase);
         return;
     } else if (buttonToggle.textContent === "Erase") {
         containerSketch.removeEventListener('mouseover', erase);
-        buttonToggle.textContent = "Shade";
-        console.log('shade mode');
-        containerSketch.addEventListener('mouseover', shade);
+        buttonToggle.textContent = "Fire";
+        containerSketch.addEventListener('mouseover', fire);
         return;
-    } else if (buttonToggle.textContent === "Shade") {
-        containerSketch.removeEventListener('mouseover', shade);
-        buttonToggle.textContent = "Black";
-        console.log('black mode');
-        containerSketch.addEventListener('mouseover', black);
+    } else if (buttonToggle.textContent === "Fire") {
+        containerSketch.removeEventListener('mouseover', fire);
+        buttonToggle.textContent = "Water";
+        containerSketch.addEventListener('mouseover', water);
+        return;
+    } else if (buttonToggle.textContent === "Water") {
+        containerSketch.removeEventListener('mouseover', water);
+        buttonToggle.textContent = "Grass";
+        containerSketch.addEventListener('mouseover', grass);
+        return;
+    } else if (buttonToggle.textContent === "Grass") {
+        containerSketch.removeEventListener('mouseover', grass);
+        buttonToggle.textContent = "Shade";
+        containerSketch.addEventListener('mouseover', shade);
         return;
     }
 }
@@ -98,7 +124,6 @@ slider.addEventListener('input', () => {
 //     }
 // });
 
-// containerSketch.addEventListener('mouseover', black);
 buttonToggle.addEventListener('click', toggleMode);
 buttonErase.addEventListener('click', eraseAll);
 containerSketch.addEventListener('mouseover', shade);
