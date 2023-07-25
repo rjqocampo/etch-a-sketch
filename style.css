@@ -61,7 +61,7 @@ img {
 }
 
 #container-main {
-    background-color: #ff2d2d;
+    background-color: #fd3a3a;
     padding: 0 4rem;
     margin: 2rem;
     border-radius: 10px;;
@@ -100,7 +100,7 @@ h2 {
 }
 
 .grid {
-    border: solid 1px rgb(163, 163, 163);
+    border: solid 1px rgb(150, 150, 150);
 }
 
 footer {
@@ -115,14 +115,14 @@ footer {
     line-height: .9rem;
     display: flex;
     align-items: center;
-    background-color: #FF9900;
+    background-color: #ffae34;
     padding: .3rem .7rem;
     border-radius: 5px;
     gap: 5px;
 }
 
 label {
-    color: #FF0E0E;
+    color: #ff2929;
 }
 
 #slider {
@@ -152,8 +152,8 @@ label {
 
 button {
     font-family: 'Leckerli One', cursive;
-    background-color: #FF9900;
-    color: #FF0E0E;
+    background-color: #ffae34;
+    color: #ff2929;
     font-size: 1rem;
     line-height: .9rem;
     padding: .3rem .7rem;

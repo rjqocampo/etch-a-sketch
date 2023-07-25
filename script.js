@@ -8,7 +8,7 @@ function makeGrids(n = 22) {
     for (let i = 0; i < (n * n); i++) {
         const grid = document.createElement('div');
         grid.setAttribute('class', 'grid');
-        grid.style.backgroundColor = 'rgb(192, 192, 192)';
+        grid.style.backgroundColor = 'rgb(200, 200, 200)';
         grid.style.width = `${(1 / n) * 100}%`;
         containerSketch.appendChild(grid);
     }
