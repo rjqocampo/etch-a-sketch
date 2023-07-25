@@ -53,17 +53,11 @@ function grass(e) {
     e.target.style.backgroundColor = `rgb(${randomizeRgb()}, 255, 0)`;
 }
 
+// get string of rgb values, turn in an array, then assign to variables
 function shade(e) {
-    // console.log(window.getComputedStyle(e.target).filter);
-    // let prevBrightness = window.getComputedStyle(e.target).filter; // get string of css filter brightness
-    // let brightness = prevBrightness.slice(prevBrightness.indexOf('(') + 1, -1); // slice number from string
-    // let newBrightness = (brightness * 100) - 10; 
-    // console.log(newBrightness);
-    // e.target.style.filter = `brightness(${newBrightness}%)`;
-
     console.log(e.target.style.backgroundColor);
-    let rgb = e.target.style.backgroundColor;
-    rgb = rgb.slice(rgb.indexOf('(') + 1, -1);
+    let rgb = e.target.style.backgroundColor; 
+    rgb = rgb.slice(rgb.indexOf('(') + 1, -1); 
     rgb = rgb.split(', ');
 
     let r = rgb[0];
@@ -73,7 +67,8 @@ function shade(e) {
     e.target.style.backgroundColor = `rgb(${r - 30}, ${g - 30}, ${b -30})`
 }
 
-function toggleMode(e) {
+// cycle through mode and remove last event listener
+function toggleMode(e) { 
     if (buttonToggle.textContent === "Shade") {
         containerSketch.removeEventListener('mouseover', shade);
         buttonToggle.textContent = "Black";
@@ -112,17 +107,6 @@ slider.addEventListener('input', () => {
     removeGrids();
     makeGrids(slider.value);
 });
-
-// button to change pad size
-// buttonSize.addEventListener('click', () => {
-//     let n = prompt('Enter grid size', '1-100');
-//     if (n > 100 || n <= 0) {
-//         alert('Kindly enter 1-100')
-//     } else {
-//         removeGrids();
-//         makeGrids(n);
-//     }
-// });
 
 buttonToggle.addEventListener('click', toggleMode);
 buttonErase.addEventListener('click', eraseAll);
