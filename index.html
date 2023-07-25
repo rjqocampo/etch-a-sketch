@@ -2,24 +2,33 @@
 <html>
     <head>
         <Title>Etch-a-Sketch</Title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <meta charset="utf-8"> 
         <link rel="stylesheet" href="./style.css">
         <script src="script.js" defer></script>
     </head>
     <body>
-        <header>
-            <h1>Etch-a-Sketch</h1>
-        </header>
-        <div>
-            <button id="button-toggle">Black</button>
-            <button id="button-size">Size</button>
-            <label for="size"></label>
-            <input id="slider" name="size" type="range" min="2" max="42" step="10" value="2">
-        </div>
         <div id="container-main">
+            <header>
+                <h1>Etch-a-Sketch<span>®</span>	</h1>
+                <h2>~ Since 1960 ~</h2>
+            </header>
+
             <div id="container-sketch">
 
             </div>
+
+            <footer>
+                <button id="button-toggle">Shade</button>
+                <!-- <button id="button-size">Size</button> -->
+                <div id="container-slider">
+                    <label for="size">Size</label>
+                    <input id="slider" name="size" type="range" min="12" max="52" step="10" value="32">
+                </div>
+                <button id="button-erase">Clear</button>
+            </footer>
         </div>
     </body>
 </html>

@@ -1,9 +1,10 @@
 const containerSketch = document.getElementById('container-sketch')
 const slider = document.getElementById('slider');
-const buttonSize = document.getElementById('button-size');
+// const buttonSize = document.getElementById('button-size');
 const buttonToggle = document.getElementById('button-toggle');
+const buttonErase = document.getElementById('button-erase');
 
-function makeGrids(n = 2) {
+function makeGrids(n = 32) {
     for (let i = 0; i < (n * n); i++) {
         const grid = document.createElement('div');
         grid.setAttribute('class', 'grid');
@@ -16,6 +17,15 @@ function makeGrids(n = 2) {
 function removeGrids() {
     while (containerSketch.firstChild) {
         containerSketch.removeChild(containerSketch.firstChild);
+    }
+}
+
+function eraseAll() {
+    const grids = document.getElementsByClassName('grid');
+    console.log(grids);
+
+    for(grid of grids) {
+        grid.style.backgroundColor = 'rgb(192,192,192)'
     }
 }
 
@@ -46,7 +56,7 @@ function shade(e) {
     let g = rgb[1];
     let b = rgb[2];
 
-    e.target.style.backgroundColor = `rgb(${r - 20}, ${g - 20}, ${b -20})`
+    e.target.style.backgroundColor = `rgb(${r - 30}, ${g - 30}, ${b -30})`
 }
 
 function toggleMode(e) {
@@ -78,19 +88,19 @@ slider.addEventListener('input', () => {
 });
 
 // button to change pad size
-buttonSize.addEventListener('click', () => {
-    let n = prompt('Enter grid size', '1-100');
-    if (n > 100 || n <= 0) {
-        alert('Kindly enter 1-100')
-    } else {
-        removeGrids();
-        makeGrids(n);
-    }
-});
+// buttonSize.addEventListener('click', () => {
+//     let n = prompt('Enter grid size', '1-100');
+//     if (n > 100 || n <= 0) {
+//         alert('Kindly enter 1-100')
+//     } else {
+//         removeGrids();
+//         makeGrids(n);
+//     }
+// });
 
 // containerSketch.addEventListener('mouseover', black);
 buttonToggle.addEventListener('click', toggleMode);
-
-containerSketch.addEventListener('mouseover', black);
+buttonErase.addEventListener('click', eraseAll);
+containerSketch.addEventListener('mouseover', shade);
 
 makeGrids();
