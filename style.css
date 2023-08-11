@@ -46,7 +46,7 @@ body {
     overflow: hidden;
 ;}
 
-img {
+.pokemans {
     margin-bottom: 2rem;
     max-width: 8em;
 }
@@ -155,4 +155,35 @@ button {
     border-radius: 5px;
     border: none;
     width: 4rem;
+}
+
+.container-git > a {
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 0.7rem;
+    color: black;
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+}
+
+.container-git > a > img {
+    padding: 0;
+
+    height: 25px;
+    width: 25px;
+}
+
+.container-git > a:hover p {
+    display: none;
+}
+
+.container-git > a:hover:after {
+    content: "Click to see code";
 }
