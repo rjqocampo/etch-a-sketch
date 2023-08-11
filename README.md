@@ -96,7 +96,7 @@ If you have any questions, feel free to contact me.
 
 # Acknowledgement
 
-Thank you to [PNGEgg](www.pngegg.com) for the images
+Thank you to [PNGEgg](https://www.pngegg.com/) for the images
 
 # Contacts
 
