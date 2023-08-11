@@ -60,7 +60,7 @@ _or_
   5. Select the `index.html` file and open in your preferred web browser
 
 # Usage
-To draw, simply hover over your mouse over the drawing pad automatically. This is to emulate the always-on draw of the classic toy. 
+To draw, simply hover over your mouse over the drawing pad and it'll draw automatically. This is to emulate the always-on draw of the classic toy. 
 
 ### Features
 **Toggle Modes**
