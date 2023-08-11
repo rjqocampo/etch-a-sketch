@@ -16,7 +16,6 @@ Link to live project: https://rjqocampo.github.io/etch-a-sketch/  :point_left:
   * Git for version control
   * Figma for mockup
   * Chrome DevTools for debugging
-  * Google Fonts for web fonts
   * Visual Studio Code for IDE
 
 ### Motivation
@@ -95,6 +94,8 @@ Thank you for your contributions and I appreciate all interests in making this p
 If you have any questions, feel free to contact me.
 
 # Acknowledgement
+
+Thank you to [Google Fonts](https://fonts.google.com/) for the web fonts
 
 Thank you to [PNGEgg](https://www.pngegg.com/) for the images
 
