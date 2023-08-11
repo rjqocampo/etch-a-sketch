@@ -2,7 +2,7 @@
 
 Welcome to Etch-a-Sketch!
 
-This project aims to recreate the classic 1960s drawing toy Etch-a-Sketch, but in digital form. 
+This project aims to recreate the classic 1960s drawing toy Etch-a-Sketch, but in digital form using HTML, CSS and Javascript.
 
 Link to live project: https://rjqocampo.github.io/etch-a-sketch/  :point_left:
 
